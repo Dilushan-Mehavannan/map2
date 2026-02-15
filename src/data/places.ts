@@ -1,0 +1,180 @@
+import type { Place } from '../types/index.js';
+
+// Sample data - 10 places within 25km (Sri Lanka themed)
+export const initialPlaces: Place[] = [
+  {
+    id: '1',
+    name: 'Gangaramaya Temple',
+    category: 'Religious',
+    description: 'One of the most important temples in Colombo, blending modern architecture with cultural essence.',
+    openingTime: '06:00',
+    closingTime: '22:00',
+    travelTips: 'Dress modestly, remove shoes before entering. Best to visit early morning.',
+    distanceFromHome: 5,
+    latitude: 6.9271,
+    longitude: 79.8612,
+    imageUrl: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=400',
+    estimatedVisitDuration: 1.5
+  },
+  {
+    id: '2',
+    name: 'Viharamahadevi Park',
+    category: 'Nature',
+    description: 'The largest and oldest park in Colombo, perfect for a peaceful walk.',
+    openingTime: '06:00',
+    closingTime: '18:30',
+    travelTips: 'Great for morning walks. Watch out for monkeys. Bring water.',
+    distanceFromHome: 6,
+    latitude: 6.9125,
+    longitude: 79.8653,
+    imageUrl: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=400',
+    estimatedVisitDuration: 2
+  },
+  {
+    id: '3',
+    name: 'Independence Memorial Hall',
+    category: 'Heritage',
+    description: 'National monument built for commemoration of the independence of Sri Lanka.',
+    openingTime: '09:00',
+    closingTime: '18:00',
+    travelTips: 'Free entry. Good photo opportunities. Nearby Independence Square is also worth visiting.',
+    distanceFromHome: 7,
+    latitude: 6.9034,
+    longitude: 79.8682,
+    imageUrl: 'https://images.unsplash.com/photo-1548013146-72479768bada?w=400',
+    estimatedVisitDuration: 1
+  },
+  {
+    id: '4',
+    name: 'National Museum of Colombo',
+    category: 'Cultural',
+    description: 'The largest museum in Sri Lanka with a vast collection of cultural and natural history artifacts.',
+    openingTime: '09:00',
+    closingTime: '17:00',
+    travelTips: 'Closed on Fridays. Allow 2-3 hours for visit. Photography not allowed inside.',
+    distanceFromHome: 7.5,
+    latitude: 6.9001,
+    longitude: 79.8613,
+    imageUrl: 'https://images.unsplash.com/photo-1566127444979-b3d2b654e3a0?w=400',
+    estimatedVisitDuration: 2.5
+  },
+  {
+    id: '5',
+    name: 'Galle Face Green',
+    category: 'Nature',
+    description: 'Ocean-side urban park stretching for half a kilometre along the coast.',
+    openingTime: '00:00',
+    closingTime: '23:59',
+    travelTips: 'Best at sunset. Try street food. Can be windy. Watch your belongings.',
+    distanceFromHome: 4,
+    latitude: 6.9271,
+    longitude: 79.8456,
+    imageUrl: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400',
+    estimatedVisitDuration: 2
+  },
+  {
+    id: '6',
+    name: 'Kelaniya Raja Maha Vihara',
+    category: 'Religious',
+    description: 'Ancient Buddhist temple with beautiful murals and architecture.',
+    openingTime: '05:00',
+    closingTime: '22:00',
+    travelTips: 'Remove shoes and hats. Dress conservatively. Major pilgrimage site.',
+    distanceFromHome: 10,
+    latitude: 6.9553,
+    longitude: 79.9219,
+    imageUrl: 'https://images.unsplash.com/photo-1548013146-72479768bada?w=400',
+    estimatedVisitDuration: 1.5
+  },
+  {
+    id: '7',
+    name: 'Diyatha Uyana',
+    category: 'Cultural',
+    description: 'Waterside park with walking paths, food stalls, and cultural events.',
+    openingTime: '10:00',
+    closingTime: '22:00',
+    travelTips: 'Best in the evening. Try local food. Boat rides available on weekends.',
+    distanceFromHome: 8,
+    latitude: 6.8905,
+    longitude: 79.8857,
+    imageUrl: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=400',
+    estimatedVisitDuration: 2
+  },
+  {
+    id: '8',
+    name: 'Beddagana Wetland Park',
+    category: 'Nature',
+    description: 'Urban wetland park with boardwalks and birdwatching opportunities.',
+    openingTime: '06:30',
+    closingTime: '18:00',
+    travelTips: 'Bring binoculars for bird watching. Wear comfortable shoes. Mosquito repellent recommended.',
+    distanceFromHome: 12,
+    latitude: 6.8793,
+    longitude: 79.9163,
+    imageUrl: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=400',
+    estimatedVisitDuration: 2
+  },
+  {
+    id: '9',
+    name: 'Old Parliament Building',
+    category: 'Heritage',
+    description: 'Historic colonial-era building with impressive architecture.',
+    openingTime: '09:00',
+    closingTime: '17:00',
+    travelTips: 'External viewing only. Great photo spot. Located near Galle Face.',
+    distanceFromHome: 4.5,
+    latitude: 6.9335,
+    longitude: 79.8431,
+    imageUrl: 'https://images.unsplash.com/photo-1566127444979-b3d2b654e3a0?w=400',
+    estimatedVisitDuration: 0.5
+  },
+  {
+    id: '10',
+    name: 'Mount Lavinia Beach',
+    category: 'Beach',
+    description: 'Popular beach destination with golden sand and clear waters.',
+    openingTime: '00:00',
+    closingTime: '23:59',
+    travelTips: 'Best for swimming. Watch for strong currents. Many restaurants nearby.',
+    distanceFromHome: 15,
+    latitude: 6.8344,
+    longitude: 79.8631,
+    imageUrl: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400',
+    estimatedVisitDuration: 3
+  },
+  {
+    id: '11',
+    name: 'Colombo Dutch Museum',
+    category: 'Heritage',
+    description: 'Museum showcasing Dutch colonial heritage and artifacts.',
+    openingTime: '09:00',
+    closingTime: '17:00',
+    travelTips: 'Small entry fee. Air-conditioned. Good for history enthusiasts.',
+    distanceFromHome: 5.5,
+    latitude: 6.9344,
+    longitude: 79.8501,
+    imageUrl: 'https://images.unsplash.com/photo-1566127444979-b3d2b654e3a0?w=400',
+    estimatedVisitDuration: 1
+  },
+  {
+    id: '12',
+    name: 'Talangama Wetland',
+    category: 'Nature',
+    description: 'Biodiversity hotspot with numerous bird species and peaceful trails.',
+    openingTime: '06:00',
+    closingTime: '18:00',
+    travelTips: 'Early morning best for bird watching. Guided tours available.',
+    distanceFromHome: 13,
+    latitude: 6.8956,
+    longitude: 79.9447,
+    imageUrl: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=400',
+    estimatedVisitDuration: 2
+  }
+];
+
+// Home location (Colombo, Sri Lanka - adjust as needed)
+export const HOME_LOCATION = {
+  latitude: 6.9271,
+  longitude: 79.8612,
+  name: 'Home'
+};
