@@ -1,7 +1,12 @@
-import type { Place } from '../types/index.js';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import Place from './models/Place.js';
 
-// Sample data - 11 places within 25km (Trincomalee themed)
-export const initialPlaces: Place[] = [
+dotenv.config();
+
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/srilanka_day_planner';
+
+const placesData = [
   {
     id: '1',
     name: 'Koneswaram Temple',
@@ -14,7 +19,8 @@ export const initialPlaces: Place[] = [
     latitude: 8.5778,
     longitude: 81.2333,
     imageUrl: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=400',
-    estimatedVisitDuration: 1.5
+    estimatedVisitDuration: 1.5,
+    tags: ['temple', 'hindu', 'ocean']
   },
   {
     id: '2',
@@ -28,7 +34,8 @@ export const initialPlaces: Place[] = [
     latitude: 8.5714,
     longitude: 81.2333,
     imageUrl: 'https://images.unsplash.com/photo-1548013146-72479768bada?w=400',
-    estimatedVisitDuration: 1
+    estimatedVisitDuration: 1,
+    tags: ['fort', 'dutch', 'views']
   },
   {
     id: '3',
@@ -42,7 +49,8 @@ export const initialPlaces: Place[] = [
     latitude: 8.6000,
     longitude: 81.2167,
     imageUrl: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400',
-    estimatedVisitDuration: 3
+    estimatedVisitDuration: 3,
+    tags: ['beach', 'swimming', 'resorts']
   },
   {
     id: '4',
@@ -56,7 +64,8 @@ export const initialPlaces: Place[] = [
     latitude: 8.6833,
     longitude: 81.2000,
     imageUrl: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400',
-    estimatedVisitDuration: 3
+    estimatedVisitDuration: 3,
+    tags: ['beach', 'snorkeling', 'calm']
   },
   {
     id: '5',
@@ -70,7 +79,8 @@ export const initialPlaces: Place[] = [
     latitude: 8.7167,
     longitude: 81.2000,
     imageUrl: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=400',
-    estimatedVisitDuration: 2
+    estimatedVisitDuration: 2,
+    tags: ['marine', 'coral', 'snorkeling']
   },
   {
     id: '6',
@@ -84,7 +94,8 @@ export const initialPlaces: Place[] = [
     latitude: 8.6500,
     longitude: 81.2167,
     imageUrl: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400',
-    estimatedVisitDuration: 2
+    estimatedVisitDuration: 2,
+    tags: ['beach', 'rocks', 'photography']
   },
   {
     id: '7',
@@ -98,7 +109,8 @@ export const initialPlaces: Place[] = [
     latitude: 8.5167,
     longitude: 81.2833,
     imageUrl: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=400',
-    estimatedVisitDuration: 2
+    estimatedVisitDuration: 2,
+    tags: ['hot springs', 'therapeutic', 'nature']
   },
   {
     id: '8',
@@ -112,7 +124,8 @@ export const initialPlaces: Place[] = [
     latitude: 8.5333,
     longitude: 81.2500,
     imageUrl: 'https://images.unsplash.com/photo-1548013146-72479768bada?w=400',
-    estimatedVisitDuration: 1
+    estimatedVisitDuration: 1,
+    tags: ['stupa', 'buddhist', 'meditation']
   },
   {
     id: '9',
@@ -126,7 +139,8 @@ export const initialPlaces: Place[] = [
     latitude: 8.5667,
     longitude: 81.2333,
     imageUrl: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=400',
-    estimatedVisitDuration: 1
+    estimatedVisitDuration: 1,
+    tags: ['harbor', 'scenic', 'historical']
   },
   {
     id: '10',
@@ -140,7 +154,8 @@ export const initialPlaces: Place[] = [
     latitude: 8.5833,
     longitude: 81.2167,
     imageUrl: 'https://images.unsplash.com/photo-1566127444979-b3d2b654e3a0?w=400',
-    estimatedVisitDuration: 0.5
+    estimatedVisitDuration: 0.5,
+    tags: ['cemetery', 'dutch', 'colonial']
   },
   {
     id: '11',
@@ -154,13 +169,29 @@ export const initialPlaces: Place[] = [
     latitude: 8.6000,
     longitude: 81.2333,
     imageUrl: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400',
-    estimatedVisitDuration: 1
+    estimatedVisitDuration: 1,
+    tags: ['viewpoint', 'ocean', 'romantic']
   }
 ];
 
-// Home location (Everest Cake House Main Building, Trincomalee, Sri Lanka)
-export const HOME_LOCATION = {
-  latitude: 8.5907455,
-  longitude: 81.2084937,
-  name: 'Everest Cake House Main Building, TC, Sri Lanka'
-};
+async function seedDatabase() {
+  try {
+    await mongoose.connect(MONGO_URI);
+    console.log('Connected to MongoDB');
+
+    // Clear existing places
+    await Place.deleteMany({});
+    console.log('Cleared existing places');
+
+    // Insert new places
+    await Place.insertMany(placesData);
+    console.log('Seeded database with places');
+
+    process.exit(0);
+  } catch (error) {
+    console.error('Error seeding database:', error);
+    process.exit(1);
+  }
+}
+
+seedDatabase();

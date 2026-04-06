@@ -1,11 +1,14 @@
 import { useState } from 'react';
-import { Trash2, Save, Calendar, Clock, Navigation } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Trash2, Save, Calendar, Clock, Navigation, Check } from 'lucide-react';
 import { useApp } from '../context/AppContext.jsx';
 
 const VisitPlan = () => {
-  const { currentVisitPlan, removeFromVisitPlan, clearVisitPlan, saveVisitPlan } = useApp();
+  const navigate = useNavigate();
+  const { currentVisitPlan, removeFromVisitPlan, clearVisitPlan, saveVisitPlan, error } = useApp();
   const [planName, setPlanName] = useState('');
   const [showSaveDialog, setShowSaveDialog] = useState(false);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   const totalDuration = currentVisitPlan.reduce((sum, place) => sum + place.estimatedVisitDuration, 0);
   const totalDistance = currentVisitPlan.reduce((sum, place) => sum + place.distanceFromHome, 0);
@@ -15,6 +18,12 @@ const VisitPlan = () => {
       saveVisitPlan(planName);
       setPlanName('');
       setShowSaveDialog(false);
+      setShowSuccessMessage(true);
+      
+      // Auto-redirect after 2 seconds
+      setTimeout(() => {
+        navigate('/saved-itineraries');
+      }, 2000);
     }
   };
 
@@ -134,6 +143,7 @@ const VisitPlan = () => {
               className="plan-name-input"
               autoFocus
             />
+            {error && <p className="form-error">{error}</p>}
             <div className="modal-actions">
               <button className="btn-secondary" onClick={() => setShowSaveDialog(false)}>
                 Cancel
@@ -141,6 +151,18 @@ const VisitPlan = () => {
               <button className="btn-primary" onClick={handleSave}>
                 Save
               </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {showSuccessMessage && (
+        <div className="success-message-banner">
+          <div className="success-content">
+            <Check size={24} />
+            <div>
+              <h4>Plan Saved Successfully!</h4>
+              <p>Redirecting to your saved itineraries...</p>
             </div>
           </div>
         </div>

@@ -20,6 +20,14 @@
   z-index: 100;
 }
 
+.navbar-admin,
+.navbar-tourist,
+.navbar-guest {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
 .nav-container {
   max-width: 1400px;
   margin: 0 auto;
@@ -920,3 +928,775 @@ tbody tr:hover {
     overflow-x: auto;
   }
 }
+
+/* New auth + dashboards */
+.auth-screen {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: radial-gradient(circle at top left, rgba(102, 126, 234, 0.25), transparent 50%), radial-gradient(circle at bottom right, rgba(118, 75, 162, 0.25), transparent 40%), #f3f6fb;
+}
+
+.auth-card {
+  width: min(480px, 100%);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(245, 251, 255, 0.95));
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  box-shadow: 0 30px 40px rgba(15, 23, 42, 0.12);
+  border-radius: 18px;
+  padding: 32px;
+}
+
+.auth-card h2 {
+  margin: 0 0 8px 0;
+  color: #1a202c;
+}
+
+.auth-card p {
+  margin: 0 0 20px 0;
+  color: #4a5568;
+}
+
+.auth-form .form-group {
+  margin-bottom: 14px;
+}
+
+.auth-form input,
+.auth-form select,
+.auth-form textarea {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #dbe4f5;
+  padding: 12px;
+  font-size: 1rem;
+}
+
+.auth-form input:focus,
+.auth-form select:focus,
+.auth-form textarea:focus {
+  border-color: #667eea;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.18);
+}
+
+.form-message {
+  font-size: 0.9rem;
+  color: #276749;
+  padding: 12px 0;
+}
+
+.form-error {
+  font-size: 0.9rem;
+  color: #c53030;
+  padding: 12px 0;
+}
+
+.dashboard-page {
+  background: #f3f6fb;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 24px 40px rgba(15, 23, 42, 0.08);
+  margin-bottom: 24px;
+}
+
+.dashboard-header h2 {
+  margin: 0;
+  font-size: 2rem;
+  color: #1a202c;
+}
+
+.dashboard-header p {
+  margin: 8px 0 20px 0;
+  color: #4a5568;
+}
+
+.dashboard-widgets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.widget-card {
+  background: white;
+  border-radius: 12px;
+  padding: 16px 18px;
+  border-left: 4px solid #667eea;
+  box-shadow: 0 10px 15px rgba(15, 23, 42, 0.06);
+}
+
+.widget-card h3 {
+  margin: 8px 0 4px 0;
+}
+
+.dashboard-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.btn-inline {
+  border: none;
+  background: transparent;
+  color: #4a5568;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.user-badge {
+  font-size: 0.9rem;
+  color: #2d3748;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+/* Admin Navbar Styles */
+.navbar-admin {
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.brand-admin {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-admin h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.3rem;
+}
+
+.brand-admin p {
+  margin: 0;
+  color: #a0aec0;
+  font-size: 0.75rem;
+}
+
+.nav-icon-admin {
+  color: #667eea;
+  width: 28px;
+  height: 28px;
+}
+
+.nav-links-admin {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-link-admin {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #cbd5e0;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s;
+}
+
+.nav-link-admin:hover {
+  background: rgba(102, 126, 234, 0.15);
+  color: #667eea;
+}
+
+.nav-link-admin.active {
+  background: #667eea;
+  color: white;
+}
+
+.user-actions-admin {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.admin-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-avatar {
+  width: 40px;
+  height: 40px;
+  background: #667eea;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.admin-name {
+  margin: 0;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.admin-role {
+  margin: 2px 0 0 0;
+  color: #a0aec0;
+  font-size: 0.8rem;
+}
+
+.btn-logout-admin {
+  background: transparent;
+  border: 2px solid #667eea;
+  color: #667eea;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s;
+  font-weight: 600;
+}
+
+.btn-logout-admin:hover {
+  background: #667eea;
+  color: white;
+}
+
+/* Tourist Navbar Styles */
+.navbar-tourist {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.brand-tourist {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-tourist h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.brand-tourist p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.nav-icon-tourist {
+  color: #ffffff;
+  width: 28px;
+  height: 28px;
+}
+
+.nav-links-tourist {
+  display: flex;
+  gap: 12px;
+}
+
+.nav-link-tourist {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.nav-link-tourist:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.nav-link-tourist.active {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.badge-tourist {
+  position: absolute;
+  top: 2px;
+  right: 6px;
+  background: #ff6b6b;
+  color: white;
+  border-radius: 10px;
+  padding: 2px 6px;
+  font-size: 0.65rem;
+  font-weight: bold;
+  min-width: 18px;
+  text-align: center;
+}
+
+.user-actions-tourist {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.tourist-greeting {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.btn-logout-tourist {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.btn-logout-tourist:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Guest/Public Navbar Styles */
+.navbar-guest {
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.brand-guest {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-guest h1 {
+  margin: 0;
+  color: #667eea;
+  font-size: 1.5rem;
+}
+
+.nav-icon-guest {
+  color: #667eea;
+}
+
+.nav-links-guest {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link-guest {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #4a5568;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.nav-link-guest:hover {
+  background: #f7fafc;
+  color: #667eea;
+}
+
+.nav-link-guest.active {
+  background: #667eea;
+  color: white;
+}
+
+.user-actions-guest {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-login-guest {
+  padding: 10px 18px;
+  border: 2px solid #667eea;
+  background: transparent;
+  color: #667eea;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn-login-guest:hover {
+  background: #667eea;
+  color: white;
+}
+
+.btn-register-guest {
+  padding: 10px 18px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn-register-guest:hover {
+  background: #5568d3;
+}
+
+/* Saved Itineraries Page */
+.saved-itineraries-page {
+  min-height: calc(100vh - 80px);
+  padding-bottom: 40px;
+}
+
+.page-header {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 32px;
+  box-shadow: 0 8px 16px rgba(102, 126, 234, 0.12);
+}
+
+.page-header h2 {
+  margin: 0 0 8px 0;
+  font-size: 2.2rem;
+  color: #1a202c;
+  font-weight: 700;
+}
+
+.page-header p {
+  margin: 0;
+  color: #718096;
+  font-size: 1.05rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 80px 40px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(102, 126, 234, 0.08);
+}
+
+.empty-state svg {
+  color: #cbd5e0;
+  margin-bottom: 24px;
+}
+
+.empty-state h3 {
+  margin: 0 0 12px 0;
+  color: #2d3748;
+  font-size: 1.5rem;
+}
+
+.empty-state p {
+  margin: 0 0 28px 0;
+  color: #718096;
+  font-size: 1.05rem;
+}
+
+.itineraries-container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.itineraries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 24px;
+}
+
+.itinerary-card {
+  background: white;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 8px 16px rgba(102, 126, 234, 0.12);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.itinerary-card:hover {
+  box-shadow: 0 12px 28px rgba(102, 126, 234, 0.2);
+  transform: translateY(-4px);
+  border-color: #667eea;
+}
+
+.itinerary-card.selected {
+  border-color: #667eea;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+}
+
+.card-header {
+  margin-bottom: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #1a202c;
+  font-weight: 700;
+  flex: 1;
+}
+
+.plan-date {
+  font-size: 0.8rem;
+  color: #a0aec0;
+  white-space: nowrap;
+  background: #f7fafc;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.card-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #4a5568;
+  font-size: 0.95rem;
+}
+
+.stat-item svg {
+  color: #667eea;
+  flex-shrink: 0;
+}
+
+.places-preview {
+  margin-bottom: 18px;
+}
+
+.places-preview h4 {
+  margin: 0 0 10px 0;
+  font-size: 0.95rem;
+  color: #4a5568;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.places-preview ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.preview-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  padding: 6px 0;
+}
+
+.category-tag {
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  min-width: 60px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.category-tag.religious {
+  background: #fef5e7;
+  color: #d68910;
+}
+
+.category-tag.nature {
+  background: #d5f4e6;
+  color: #117a65;
+}
+
+.category-tag.heritage {
+  background: #fdebd0;
+  color: #ba4a00;
+}
+
+.category-tag.cultural {
+  background: #fadbd8;
+  color: #a93226;
+}
+
+.category-tag.adventure {
+  background: #d6eaf8;
+  color: #1b4965;
+}
+
+.category-tag.beach {
+  background: #d1f2eb;
+  color: #0e6251;
+}
+
+.place-name {
+  color: #2d3748;
+  font-weight: 500;
+  flex: 1;
+}
+
+.more-items {
+  color: #718096;
+  font-style: italic;
+  padding: 8px 0;
+  font-size: 0.85rem;
+}
+
+.card-actions {
+  display: flex;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid #edf2f7;
+  margin-top: 16px;
+}
+
+.btn-sm {
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  transition: all 0.3s;
+  flex: 1;
+  justify-content: center;
+}
+
+.btn-primary.btn-sm {
+  background: #667eea;
+  color: white;
+}
+
+.btn-primary.btn-sm:hover {
+  background: #5568d3;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.btn-danger.btn-sm {
+  background: #fc8181;
+  color: white;
+}
+
+.btn-danger.btn-sm:hover {
+  background: #f56565;
+  box-shadow: 0 4px 12px rgba(252, 129, 129, 0.3);
+}
+
+.itineraries-footer {
+  text-align: center;
+  color: #718096;
+  font-size: 0.95rem;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+/* Success Message Banner */
+.success-message-banner {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+  border-radius: 12px;
+  padding: 16px 20px;
+  color: white;
+  box-shadow: 0 10px 30px rgba(72, 187, 120, 0.3);
+  z-index: 1000;
+  animation: slideInUp 0.4s ease;
+  max-width: 350px;
+}
+
+.success-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.success-content svg {
+  flex-shrink: 0;
+  animation: checkBounce 0.6s ease;
+}
+
+.success-content h4 {
+  margin: 0 0 4px 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.success-content p {
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.95;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes checkBounce {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
