@@ -15,7 +15,7 @@ const AdminNavbar = () => {
           <Settings className="nav-icon nav-icon-admin" />
           <div>
             <h1>Admin Panel</h1>
-            <p>Sri Lanka Day Planner</p>
+            <p>Dream Tourist</p>
           </div>
         </div>
 

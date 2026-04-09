@@ -1,4 +1,4 @@
-# User Guide - Sri Lanka Day Planner
+# User Guide - Dream Tourist
 
 ## Getting Started
 

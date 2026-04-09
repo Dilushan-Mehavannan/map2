@@ -61,7 +61,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       };
       const nextUsers = [...users, adminUser];
       localStorage.setItem(localUsersKey, JSON.stringify(nextUsers));
-      console.log('Default admin user seeded: admin@srilanka.com');
+      console.log('Default admin user seeded: admin@dreamtourist.com');
     }
   }, []);
 

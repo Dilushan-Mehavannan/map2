@@ -26,7 +26,7 @@ const Navbar = () => {
       <div className="nav-container">
         <div className="nav-brand brand-guest">
           <MapPin className="nav-icon nav-icon-guest" />
-          <h1>Sri Lanka Day Planner</h1>
+          <h1>Dream Tourist</h1>
         </div>
 
         <div className="nav-links nav-links-guest">

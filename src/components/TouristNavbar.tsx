@@ -15,7 +15,7 @@ const TouristNavbar = () => {
           <Compass className="nav-icon nav-icon-tourist" />
           <div>
             <h1>Explorer</h1>
-            <p>Discover Sri Lanka</p>
+            <p>Discover with Dream Tourist</p>
           </div>
         </div>
 

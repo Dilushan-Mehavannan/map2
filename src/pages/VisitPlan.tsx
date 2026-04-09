@@ -31,7 +31,7 @@ const VisitPlan = () => {
     <div className="visit-plan-page">
       <div className="page-header">
         <h2>My One-Day Visit Plan</h2>
-        <p>Plan your perfect day exploring Sri Lanka</p>
+        <p>Plan your perfect day exploring with Dream Tourist</p>
       </div>
 
       {currentVisitPlan.length === 0 ? (

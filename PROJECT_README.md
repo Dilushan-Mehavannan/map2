@@ -1,4 +1,4 @@
-# Local Tourist Day-Visit Planner and Information System
+# Dream Tourist - Day-Visit Planner and Information System
 
 A comprehensive web-based system designed to help tourists plan one-day visits to places of interest within a 25km radius. This project focuses on Sri Lankan tourist destinations near Colombo.
 

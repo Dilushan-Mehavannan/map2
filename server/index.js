@@ -2,11 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import User from './models/User.js';
-import Place from './models/Place.js';
-import VisitPlan from './models/VisitPlan.js';
-import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
+import { connectDB, isMongoConnected } from './config/database.js';
 
 dotenv.config();
 
@@ -17,9 +13,13 @@ const JWT_SECRET = process.env.JWT_SECRET || 'verysecuresecret';
 
 // Try available ports starting at BASE_PORT
 let currentPort = BASE_PORT;
-const startServer = () => {
+const startServer = async () => {
+  // Connect to database first
+  const dbConnected = await connectDB();
+
   const server = app.listen(currentPort, () => {
     console.log(`Server running at http://localhost:${currentPort}`);
+    console.log(`MongoDB Status: ${dbConnected ? 'Connected' : 'Not Connected (Development Mode)'}`);
   });
 
   server.on('error', (error) => {
@@ -43,29 +43,14 @@ startServer();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(async () => {
-    console.log('MongoDB connected');
-    
-    // Seed default admin user if not exists
-    const adminExists = await User.findOne({ role: 'admin' });
-    if (!adminExists) {
-      const hashedPassword = await bcrypt.hash('admin123', 10);
-      await User.create({
-        name: 'Admin',
-        email: 'admin@srilanka.com',
-        password: hashedPassword,
-        role: 'admin'
-      });
-      console.log('Default admin user created: admin@srilanka.com / admin123');
-    }
-  })
-  .catch(err => console.error('MongoDB connection error:', err));
-
 app.get('/api/health', (req, res) => res.json({ status: 'ok' }));
 
 app.post('/api/auth/register', async (req, res) => {
   try {
+    if (!isMongoConnected()) {
+      return res.status(503).json({ error: 'Database not available. Please use localStorage authentication.' });
+    }
+
     const { name, email, password, role } = req.body;
     if (!email || !password) return res.status(400).json({ error: 'Email and password are required' });
 
@@ -85,6 +70,10 @@ app.post('/api/auth/register', async (req, res) => {
 
 app.post('/api/auth/login', async (req, res) => {
   try {
+    if (!isMongoConnected()) {
+      return res.status(503).json({ error: 'Database not available. Please use localStorage authentication.' });
+    }
+
     const { email, password } = req.body;
     const user = await User.findOne({ email });
     if (!user) return res.status(401).json({ error: 'Invalid credentials' });

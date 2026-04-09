@@ -1,4 +1,4 @@
-# Sri Lanka Day Planner - Viva Presentation Guide
+# Dream Tourist - Viva Presentation Guide
 
 ## 📋 Table of Contents
 1. [Project Overview](#project-overview)
@@ -13,7 +13,7 @@
 
 ## 🎯 Project Overview
 
-**Project Name**: Sri Lanka Day Planner  
+**Project Name**: Dream Tourist  
 **Type**: Full-stack Travel Planning Web Application  
 **Tech Stack**: React (Frontend) + Express.js + MongoDB (Backend)  
 **Purpose**: Help tourists plan one-day itineraries for exploring Sri Lanka attractions
@@ -31,7 +31,7 @@
 ## ❓ Q&A Section
 
 ### **Q1: What is the purpose of this application?**
-**A**: The Sri Lanka Day Planner is a web application designed to help tourists create and manage one-day itineraries by exploring and selecting attractions within 25km of Colombo. It also allows administrators to manage place information.
+**A**: The Dream Tourist is a web application designed to help tourists create and manage one-day itineraries by exploring and selecting attractions within 25km of Colombo. It also allows administrators to manage place information.
 
 ---
 
